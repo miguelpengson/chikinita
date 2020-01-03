@@ -1,0 +1,27 @@
+Corey Schafer - Youtube Python Flask Tutorial
+
+1. Getting started
+
+    Files: chikinita.py
+
+    Imports: Flask, Wheel, python3, python3-pip
+
+    wheel - a built-package format for Python
+          - setuptools
+          - command line tool for wheel files
+          - pip3 list  
+    1. Set up Virtual Enviornment
+        - python3 -m venv venv
+        - source venv/bin/activate , deactivate
+
+    2. Create your README.md file
+    3. Create your .gitignore file
+    4. Set up Git
+        - github website create repository
+        - git init
+        - git add -A
+        - git commit -m 'your message'
+        - git remote add origin remote_repository  # sets the remote repo
+        - git remote -v   # verifies the remote repo
+        - git push origin master
+
