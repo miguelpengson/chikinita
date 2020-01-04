@@ -25,3 +25,35 @@ Corey Schafer - Youtube Python Flask Tutorial
         - git remote -v   # verifies the remote repo
         - git push origin master
 
+2. Templates
+    - are files that contain static data as well as placeholders for 
+      dynamic data
+    - is rendered with specific data to produce a final document
+    - Jinja2
+        anythin betwee, {{ }} is an expression that will be output of the final document
+        {% and %} denotes a control flow statement like if and for, blocks are denoted by start and end tags 
+
+    Files: (folder) Templates
+           includes:
+           about.html, home.html, base.html
+           (folder) Static
+           main.css
+
+    Imports: from flask - render_template, url_for
+
+    render template method - uses Jinja2
+                           - name of the template and variables
+                             you want to pass to the template
+                             as keyword arguments
+
+    url_for() function     - url building
+                           - uses the name of the function as its
+                             first argument and any number of keyword
+                             arguments
+                           - helps you by not having to hard code 
+                             urls
+
+    routes: index, about
+
+
+

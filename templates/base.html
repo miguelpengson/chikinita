@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+  {% if title %}
+      <title>Chikinita Blog - {{ title }}</title>
+  {% else %}
+      <title>Chikinita Blog</title>
+  {% endif %}
+</head> 
+
+<body>
+  <header class="site-header">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand nav-item nav-link" href="{{ url_for('index') }}">Chikinita.com</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-item nav-link" href="{{ url_for('about') }}">About</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  </header>
+<main role="main" class="container">
+<div class="row">
+<div class="container-fluid text-center">    
+    <div class="col-sm-8 text-left"> 
+      <!-- For flask python -->
+      {% block content %}{% endblock content %}
+    </div>
+    <div class="col-sm-4 sidenav">
+      <div class="well">
+        <p>Side Bar Information
+        </p>
+      </div>
+      <div class="well">
+        <p>Other Information</p>
+      </div>
+    </div>
+</div>
+</div>
+</main>
+
+<!-- Javascript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
