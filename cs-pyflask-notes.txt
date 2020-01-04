@@ -55,5 +55,60 @@ Corey Schafer - Youtube Python Flask Tutorial
 
     routes: index, about
 
+3. Forms and Validation
+
+    Install:
+        - pip3 install flask-wtf
+
+   Files: forms.py
+            class RegistrationForm(FlaskForm)
+            class LoginForm(FlaskForm)
+
+          chikinita.py
+            SECRET_KEY
+            def register()
+            def login()
+
+   Imports: from flask_wtf import FlaskForm
+            from wtforms import StringField, PasswordField, SubmitField, BooleanField
+            from wtforms.validators import DataRequired, Length, Email, EqualTo
+            
+            - chikinita.py
+            from flask import flash, redirect
+            # forms.py classes
+            from forms import RegistrationForm, LoginForm
+
+    routes: register, login, methods=['GET', 'POST']
+
+    we write python classes to represent forms and they will automatically converted into html forms
+
+    Steps: 
+
+    1. flask.py
+    2. secret keys app.cofig - how we set config values on our app
+    3. import our forms to chikinita.py
+    4. create our routes, login, register in chikinita.py
+    5. create 2 new files retister.html and login.html
+    6. import flash and redirect
+    7. update register() to include redirect and flash
+    8. update base.html for the flashed messages, and redirect
+    9. register.html feedback for user to tell them what they are doing wrong
+    10. login.html can copy most of the register.html except username, confirm_password
+   11. update chikinita.py for login error messages --> flash 
+   12. In base.html update links to use url_for
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

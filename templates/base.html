@@ -34,10 +34,10 @@
         <ul class="nav navbar-nav">
           <li><a class="nav-item nav-link" href="{{ url_for('about') }}">About</a></li>
           <li><a href="#">Projects</a></li>
-          <li><a href="#">Contact</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a></li>
+          <li><a class="nav-item nav-link" href="{{ url_for('register') }}"> Register</a></li>
         </ul>
       </div>
     </div>
@@ -48,6 +48,15 @@
 <div class="container-fluid text-center">    
     <div class="col-sm-8 text-left"> 
       <!-- For flask python -->
+      {% with messages = get_flashed_messages(with_categories=true) %} <!-- with_categories allows us to get the flashed messages 'success' from bootstrap in the register route-->
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+          {% endfor%}
+        {% endif %}
+      {% endwith %}
       {% block content %}{% endblock content %}
     </div>
     <div class="col-sm-4 sidenav">
