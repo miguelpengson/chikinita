@@ -97,6 +97,41 @@ Corey Schafer - Youtube Python Flask Tutorial
    11. update chikinita.py for login error messages --> flash 
    12. In base.html update links to use url_for
 
+4. Databases with Flask-SQLAlchemy
+    
+    imports: from flask_sqlalchemy import SQLAlchemy
+             from datetime import datetime --> for the date on the posts
+
+    files: chikinita.py
+
+
+    1. pip3 install flask-sqlalchemy
+    2. in chikinita.py import SQLAlchemy
+    3. specify URI --> where the database is located
+    4. create a database instance db = SQLAlchemy(app)
+    5. create our classes User, Post
+    6. in our repl try the database
+    
+    sqlite commands:
+
+    create_all() - will create a new site.db file
+    from chikinita import User, Post  --> importing the class User, Post
+    user_1 = User(username='Miguel', email='miguel@chikinita.com', password='password)
+    db.session.add(user_1)    --> like git first we add the user_1 data
+    db.session.commit()       --> then we write to the database
+    User.query.all()
+    User.query.filter_by(username='Miguel').all()
+    user = User.query.filter_by(username='Miguel').first()
+    user.id
+    user = querry.get(1)  --> get the user_id
+
+
+
+
+
+
+
+
 
 
 
