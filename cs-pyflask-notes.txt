@@ -104,7 +104,7 @@ Corey Schafer - Youtube Python Flask Tutorial
 
     files: chikinita.py
 
-
+Steps:
     1. pip3 install flask-sqlalchemy
     2. in chikinita.py import SQLAlchemy
     3. specify URI --> where the database is located
@@ -125,9 +125,24 @@ Corey Schafer - Youtube Python Flask Tutorial
     user.id
     user = querry.get(1)  --> get the user_id
 
+5. Package Structure
 
+Files: chikinita (folder)
+       chikinita/routes.py
+       chikinita/__init__.py
+       chikinita/routes.py
 
-
+Steps:
+1. Create a new folder with the same name as our application chikinita
+2. Within the new chikinita folder create a __init__.py file
+   When we create a __init__.py file in a folder we are telling python
+   that this folder is a package.
+   The __init__.py file is where we initialize our application and 
+   bring together other components.
+3. We will move all our imports and application initialization lines
+   and move them to the __init__.py file.
+4. Create a chikinita/routes.py file and move all of our route code into 
+   the routes.py file
 
 
 
