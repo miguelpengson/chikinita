@@ -143,22 +143,45 @@ Steps:
    and move them to the __init__.py file.
 4. Create a chikinita/routes.py file and move all of our route code into 
    the routes.py file
+5. rename chikinita.py to run.py - then we have to import the app to run
+   from our package
+   --> from chikinita import app
+6. then from the __init__.py file we move the imports render_template,
+   url_for, flash and redirect to our routes.py file but we still need
+   from flask import Flask in our __init__.py file
+7. we would also need to move --> from models import User, Port
+   into our route.py
+   we have to rename app.forms and app.models into chikinita.forms and 
+   chikinita.models since we have a packate now meaning the folder
+   chikinita with a file inside called __init__.py
 
+8. since the decorators use @app.route in our routes folder then 
+   we also need to import the app into this file import from our package
+   --> from chikinita import app 
+9. also we need to import the routes into the __init__.py file, and since
+   we cannot attatch to the top of the file or we will get another circular   
+    import issue, we will put the --> from chikinita import routesß
 
+10. in our models.py file we need to add --> from chikinita import db
 
+11. our directory structure now: 
 
+    .
+├── README.md
+├── chikinita
+│   ├── __init__.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── routes.py
+│   ├── static
+│   │   └── main.css
+│   └── templates
+│       ├── about.html
+│       ├── base.html
+│       ├── index.html
+│       ├── login.html
+│       └── register.html
+├── cs-pyflask-notes.txt
+|__ run.py
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* --  

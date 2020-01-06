@@ -1,5 +1,5 @@
 from datetime import datetime
-from chikinita import db
+from chikinita import db 
 
 class User(db.Model):       # we will import form db.Model
     id = db.Column(db.Integer, primary_key=True)
