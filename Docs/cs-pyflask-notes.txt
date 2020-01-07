@@ -112,7 +112,7 @@ Steps:
     5. create our classes User, Post
     6. in our repl try the database
     
-    sqlite commands:
+    flask-sqlalchemy commands:
 
     create_all() - will create a new site.db file
     from chikinita import User, Post  --> importing the class User, Post
@@ -188,12 +188,57 @@ Steps:
 6. Login Authentication
 
 imports: flask-bcrypt
+         wtfroms.validators --> ValidationError in forms.py
+         flask-login
 
 files:  __init__.py
         routes.py
+        forms.py
 
 Steps:
 
 1. pip install flask-bcrypt
 2. __init__.py  --> flask_bcrypt import Bcrypt, 
-3. routes.py --> 
+3. routes.py -->  we need to import from bcrypt and the db database
+   RegistrationForm method
+
+4. check the password hash is working --> in the command line
+   after we try with our website live that the information in
+   the registration field was accepted in the database
+
+    - from chikinita import db
+    - from chikinita.models import User
+    - user = User.query.first()
+    - user
+    - user.password 
+
+5. Error - no checking if the user and password is already in use
+         - you can use the flask debugger when running the app
+         - to catch the error it is best to ...
+
+6. Edit forms.py 
+        - import from wtfroms.validator ValidationError
+        - edit the class RegistrationForm in forms.py
+        - we add to the end of class RegistrationForm
+          function validate_username, validate_email --> template for the errors
+
+7. pip install flask-login
+
+
+Bcrypt commands:
+
+from flask_bcrypt import Bcrypt
+bcrypt = Bcrypt()
+bcrypt.generate_password_hash('testing')  --> will generate a binary generate_password_hash (b in the beginning)
+bcrypt.generate_password_hash('testing').decode('utf-8')  --> generate string hash 
+    - each time we generate this we get a different hash
+    - if it is different every time we need another method --> check password hash
+
+hashed_pw = bcrypt.generate_password_hash('testing').decode('utf-8')
+
+bcrypt.check_password_hash(hashed_pw, 'password')   # the second parameter is the test object
+>> False
+bcrypt.check_password_hash(hashed_pw, 'testing')
+>> True
+
+--> This is how we will hash and check password
