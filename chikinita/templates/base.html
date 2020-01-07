@@ -36,9 +36,15 @@
           <li><a href="#">Projects</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+
+          {% if current_user.is_authenticated %}
+          <li><a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a></li>
+          <li><a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a></li>
+          {% else %}
           <li><a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a></li>
           <li><a class="nav-item nav-link" href="{{ url_for('register') }}"> Register</a></li>
         </ul>
+        {% endif %}
       </div>
     </div>
   </nav>

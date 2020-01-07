@@ -160,7 +160,7 @@ Steps:
    --> from chikinita import app 
 9. also we need to import the routes into the __init__.py file, and since
    we cannot attatch to the top of the file or we will get another circular   
-    import issue, we will put the --> from chikinita import routesß
+    import issue, we will put the --> from chikinita import routes
 
 10. in our models.py file we need to add --> from chikinita import db
 
@@ -222,8 +222,19 @@ Steps:
         - we add to the end of class RegistrationForm
           function validate_username, validate_email --> template for the errors
 
-7. pip install flask-login
+7. Login system
+   pip install flask-login
 
+8. import flask-login to the __init__.py file
+   --> from flask_login import LoginManager
+
+9. initialize the login-manager in __init__.py
+   - we add some functionality to our database models 
+     add it will handle all the sessions in the background for us
+
+10. in the models.py we need to import our login_manager
+11. add a function with a decorator user loader
+    
 
 Bcrypt commands:
 
@@ -240,5 +251,5 @@ bcrypt.check_password_hash(hashed_pw, 'password')   # the second parameter is th
 >> False
 bcrypt.check_password_hash(hashed_pw, 'testing')
 >> True
-
 --> This is how we will hash and check password
+
