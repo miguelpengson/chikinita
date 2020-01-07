@@ -1,5 +1,5 @@
 from flask import render_template, url_for, flash, redirect
-from chikinita import app
+from chikinita import app, db, bcrypt
 from chikinita.forms import RegistrationForm, LoginForm
 from chikinita.models import User, Post
 
@@ -31,8 +31,12 @@ def about():
 def register():
     form = RegistrationForm()  # from forms.py (class)
     if form.validate_on_submit():
-        flash(f'Account created for {form.username.data}!', 'success') # success is bootstrap
-        return redirect(url_for('index'))   # index is our function
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(username = form.username.data, email=form.email.data, password=hashed_password)
+        db.session.add(user)
+        db.session.commit()
+        flash(f'Your account has been created! You are now able to log in.', 'success') # success is bootstrap
+        return redirect(url_for('login'))   # login is our function
     return render_template('register.html', title='Register', form=form)
 
 @app.route("/login", methods=['GET', 'POST'])

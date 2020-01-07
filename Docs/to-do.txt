@@ -1,0 +1,2 @@
+1. Review Bootstrap 
+2. make notes flask-sqlaclchemy commands
